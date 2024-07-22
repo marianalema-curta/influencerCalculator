@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha a Plataforma</title>
+    <style>
+        @font-face {
+            font-family: 'FontBold';
+            src: url('fontBold.otf') format('opentype');
+        }
+        body {
+            background-image: url('backgroundindex.png');
+            background-size: cover;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        label, select, button {
+            font-size: 19px;
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        select {
+            font-size: 16px;
+            color: black;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fadc05; /* Cor amarela */
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        img.logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 200px; /* ajuste o tamanho conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Calculadora de Influenciadores</h1>
+    <label>
+        Escolha a plataforma:
+        <select id="plataforma" required>
+            <option value="">Selecione...</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube</option>
+        </select>
+    </label>
+    <button type="button" onclick="selecionarPlataforma()">Selecionar</button>
+
+    <script>
+        function selecionarPlataforma() {
+            const plataforma = document.getElementById('plataforma').value;
+            if (plataforma === "instagram") {
+                window.location.href = 'instagram.html';
+            } else if (plataforma === "tiktok") {
+                window.location.href = 'tiktok.html';
+            } else if (plataforma === "youtube") {
+                window.location.href = 'youtube.html';
+            } else {
+                alert('Por favor, selecione uma plataforma.');
+            }
+        }
+    </script>
+</body>
+</html>

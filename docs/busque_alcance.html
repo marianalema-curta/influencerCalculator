@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Influenciador</title>
+    <style>
+        @font-face {
+            font-family: 'FontBold';
+            src: url('fontBold.otf') format('opentype');
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url('backgroundyoutube.png');
+            background-size: cover;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: black; /* Fundo preto */
+        }
+        h1 {
+            font-family: 'FontBold', Arial, sans-serif;
+            background-color: black; /* Fundo preto */
+            color: #fadc05;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 19px;
+            color: black;
+            background-color: #fadc05; /* Cor amarela */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        .button:hover {
+            background-color: c; /* Cor amarela escura */
+        }
+        .button:focus {
+            outline: none; /* Remove o contorno ao focar */
+        }
+        img.logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 200px; /* ajuste o tamanho conforme necessário */
+            background-color: black; /* Fundo preto */
+        }
+        .form-control {
+            margin: 15px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: calc(100% - 20px);
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        .slider {
+            width: 100%;
+            margin: 15px 0;
+        }
+        .spacer {
+            margin-bottom: 30px; /* Espaço extra entre os elementos */
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Encontre um Influenciador:</h1>
+    <div class="spacer"></div>
+    <form>
+        <label for="alcance">Escolha seu Alcance:</label>
+        <div class="spacer"></div>
+        <input type="range" id="alcance" name="alcance" min="100" max="50000" value="100" class="slider">
+        <span id="alcance-value">100</span>
+        <div class="spacer"></div>
+
+        <label for="platform">Escolha a Plataforma:</label>
+        <select id="platform" name="platform" class="form-control">
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube</option>
+        </select>
+
+        <div class="spacer"></div>
+
+        <label for="niche">Escolha o Nicho:</label>
+        <select id="niche" name="niche" class="form-control">
+            <option value="beleza">Beleza</option>
+            <option value="videogame">Videogame</option>
+            <option value="pet">Pet</option>
+        </select>
+
+        <button type="submit" class="button">Buscar Influenciador</button>
+    </form>
+
+    <script>
+        const alcanceSlider = document.getElementById('alcance');
+        const alcanceValue = document.getElementById('alcance-value');
+
+        alcanceSlider.oninput = function() {
+            alcanceValue.textContent = this.value == 50000 ? "50000+" : this.value;
+        }
+    </script>
+</body>
+</html>

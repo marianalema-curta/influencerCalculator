@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Valor de Influenciador - Instagram</title>
+    <style>
+        @font-face {
+            font-family: 'FontBold';
+            src: url('fontBold.otf') format('opentype');
+        }
+        body {
+            background-image: url('background.png');
+            background-size: cover;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            position: relative;
+        }
+        label, select, input, button {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+            font-size: 16px;
+        }
+        select, input {
+            color: black;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fadc05; /* Cor amarela */
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        h1, h2 {
+            text-align: center;
+            font-family: 'FontBold', Arial, sans-serif;
+            margin-top: 50px; /* Aumenta o espaço entre a logo e o título */
+        }
+        img.logo {
+            position: absolute;
+            right: 0;
+            top: -20px; /* Posiciona a logo mais no topo */
+            width: 100px; /* ajuste o tamanho conforme necessário */
+        }
+        .result {
+            color: #fadc05; /* Cor amarela */
+            text-align: center;
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Calculadora para Instagram</h1>
+    <form id="calculatorForm" onsubmit="return calcularValorInsta(event)">
+        <label>
+            Buscar Influenciador Existente:
+            <input type="text" id="buscarInfluenciador" placeholder="Digite o nome do influenciador" oninput="buscarInfluenciadorExistente()">
+        </label>
+        <div id="formCampos" class="hidden">
+            <label>
+                Quantos seguidores o seu influenciador tem?
+                <input type="number" id="seguidores">
+            </label>
+            <label>
+                Media de Alcance?
+                <input type="number" id="alcance">
+            </label>
+            <label>
+                Engajamento? (%)
+                <input type="number" step="0.01" id="engajamento" max="100">
+            </label>
+            <label>
+                Idade do Publico Alvo?
+                <select id="publicoMenorIdade">
+                    <option value="13-17">13-17</option>
+                    <option value="18-24">18-24</option>
+                    <option value="25-34">25-34</option>
+                    <option value="35-44">35-44</option>
+                    <option value="45-54">45-54</option>
+                    <option value="55-64">55-64</option>
+                    <option value="65+">65+</option>
+                </select>
+            </label>
+            <label>
+                Qual seria a primeira categoria mais relevante deste influenciador?
+                <select id="categoria1">
+                    <option value="Moda">Moda</option>
+                    <option value="Beleza">Beleza</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Gadgets">Gadgets</option>
+                </select>
+            </label>
+            <label>
+                Qual seria a segunda categoria mais relevante deste influenciador?
+                <select id="categoria2">
+                    <option value="Moda">Moda</option>
+                    <option value="Beleza">Beleza</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Gadgets">Gadgets</option>
+                </select>
+            </label>
+        </div>
+        <button type="submit">Calcular Valor</button>
+    </form>
+    <h2>Valor Estimado Para Stories:</h2>
+    <p id="resultadoStories" class="result">--</p>
+    <h2>Valor Estimado Para Reels:</h2>
+    <p id="resultadoReels" class="result">--</p>
+
+    <script>
+        function buscarInfluenciadorExistente() {
+            const nome = document.getElementById('buscarInfluenciador').value.toLowerCase();
+            const influenciadores = {
+                'influenciador1': { seguidores: 10000, alcance: 8000, engajamento: 5, publicoMenorIdade: '18-24', categoria1: 'Moda', categoria2: 'Beleza' },
+                'influenciador2': { seguidores: 20000, alcance: 15000, engajamento: 4, publicoMenorIdade: '25-34', categoria1: 'Tecnologia', categoria2: 'Gadgets' }
+            };
+
+            if (influenciadores[nome]) {
+                const influenciador = influenciadores[nome];
+                document.getElementById('seguidores').value = influenciador.seguidores;
+                document.getElementById('alcance').value = influenciador.alcance;
+                document.getElementById('engajamento').value = influenciador.engajamento;
+                document.getElementById('publicoMenorIdade').value = influenciador.publicoMenorIdade;
+                document.getElementById('categoria1').value = influenciador.categoria1;
+                document.getElementById('categoria2').value = influenciador.categoria2;
+                document.getElementById('formCampos').classList.add('hidden');
+            } else {
+                document.getElementById('formCampos').classList.remove('hidden');
+                document.getElementById('seguidores').value = '';
+                document.getElementById('alcance').value = '';
+                document.getElementById('engajamento').value = '';
+                document.getElementById('publicoMenorIdade').value = '';
+                document.getElementById('categoria1').value = '';
+                document.getElementById('categoria2').value = '';
+            }
+        }
+
+        function calcularValorInsta(event) {
+            event.preventDefault();
+            const seguidores = document.getElementById('seguidores').value;
+            const alcance = document.getElementById('alcance').value;
+            const engajamento = document.getElementById('engajamento').value;
+            const resultadoStories = seguidores * 0.01 + alcance * 0.05 + engajamento * 0.1;
+            const resultadoReels = seguidores * 0.015 + alcance * 0.07 + engajamento * 0.12;
+            document.getElementById('resultadoStories').textContent = `R$ ${resultadoStories.toFixed(2)}`;
+            document.getElementById('resultadoReels').textContent = `R$ ${resultadoReels.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

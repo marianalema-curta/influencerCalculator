@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Valor de Influenciador - TikTok</title>
+    <style>
+        @font-face {
+            font-family: 'FontBold';
+            src: url('fontBold.otf') format('opentype');
+        }
+        body {
+            background-image: url('backgroundtiktok.png');
+            background-size: cover;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            position: relative;
+        }
+        label, select, input, button {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            width: 100%;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        select, input {
+            color: black;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fadc05; /* Cor amarela */
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        h1, h2 {
+            text-align: center;
+            font-family: 'FontBold', Arial, sans-serif;
+            margin-top: 50px; /* Aumenta o espaço entre a logo e o título */
+        }
+        img.logo {
+            position: absolute;
+            right: 0;
+            top: -20px; /* Posiciona a logo mais no topo */
+            width: 100px; /* ajuste o tamanho conforme necessário */
+        }
+        .result {
+            color: #fadc05; /* Cor amarela */
+            text-align: center;
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Calculadora para TikTok</h1>
+    <form id="calculatorForm" onsubmit="return calcularValorTiktok(event)">
+        <label>
+            Quantos seguidores o seu influenciador tem?
+            <input type="number" id="seguidores" required>
+        </label>
+        <label>
+            Media de Views?
+            <input type="number" id="alcance" required>
+        </label>
+        <label>
+            Engajamento? (%)
+            <input type="number" step="0.01" id="engajamento" max="100" required>
+        </label>
+        <button type="submit">Calcular Valor</button>
+    </form>
+    <h2>Valor Estimado Para TikTok:</h2>
+    <p id="resultado" class="result">--</p>
+
+    <script src="app_tiktok.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Perfil</title>
+    <style>
+        @font-face {
+            font-family: 'FontBold';
+            src: url('fontBold.otf') format('opentype');
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url('backgroundindex.png');
+            background-size: cover;
+            color: #fa142d; /* Cor vermelha */
+            font-family: 'FontBold', Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: black; /* Fundo preto */
+        }
+        h1 {
+            font-family: 'FontBold', Arial, sans-serif;
+            background-color: black; /* Fundo preto */
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 19px;
+            color: black;
+            background-color: #fadc05; /* Cor amarela */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'FontBold', Arial, sans-serif;
+        }
+        .button:hover {
+            background-color: #e0be04; /* Cor amarela escura */
+        }
+        .button:focus {
+            outline: none; /* Remove o contorno ao focar */
+        }
+        img.logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 200px; /* ajuste o tamanho conforme necessário */
+            background-color: black; /* Fundo preto */
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Encontre um Influenciador:</h1>
+    <a href="busque_budget.html" class="button">Para seu Budget</a>
+    <a href="busque_alcance.html" class="button">Para seu Alcance Desejado</a>
+</body>
+</html>
